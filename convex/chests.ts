@@ -75,7 +75,7 @@ export const openChest = mutation({
     }
 
     const isLimited = await rateLimitByKey(ctx, args.sessionId);
-    if (!isLimited) {
+    if (isLimited) {
       return;
     }
 
