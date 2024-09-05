@@ -36,6 +36,7 @@ function Chest({
       const currentValue = localStore.getQuery(api.chests.getChestPartition, {
         partition: partitionIndex,
       });
+      console.log("Current partition value:", currentValue);
       if (currentValue) {
         localStore.setQuery(
           api.chests.getChestPartition,
@@ -72,8 +73,14 @@ function Chest({
         onClick={() => {
           openChest({ index, sessionId: SESSION_ID }).then((code) => {
             if (code) {
+              console.log("Chest opened successfully, code:", code);
               data.onCodeFound(code);
+            } else {
+              console.error("Chest opening failed: no code returned");
             }
+          })
+          .catch((error) => {
+            console.error("Error opening chest:", error);
           });
         }}
       >
