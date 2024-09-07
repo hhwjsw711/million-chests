@@ -130,17 +130,17 @@ export default function Home() {
         </p>
         {code && (
           <p className="text-xl mb-4">
-            You found a code! Use the code of{" "}
-            <span className="text-blue-400">{code}</span> to get a free copy of
+            You found a movie ticket code! Use the code{" "}
+            <span className="text-blue-400">{code}</span> to redeem your free movie ticket on 
             my{" "}
             <a
               className="link"
-              href="https://webdevcody.gumroad.com/l/wdc-saas-starter-kit-walkthrough"
+              href="https://fizzdragon.com"
               target="_blank"
             >
-              starter kit
+              website
             </a>
-            .
+            . Enjoy the show!
           </p>
         )}
       </div>
@@ -159,7 +159,7 @@ export default function Home() {
                 window.localStorage.setItem(`code`, code);
                 setCode(code);
                 alert(
-                  `You found a discount code for my starter kit walkthrough: ${code}!`
+                  `You found a movie ticket code: ${code}! Use it to redeem your free movie ticket.`
                 );
               },
             }}
