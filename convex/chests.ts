@@ -70,7 +70,6 @@ export const openChest = mutation({
     sessionId: v.string(),
   },
   async handler(ctx, args) {
-    console.log("Rate limit hit for session:", args.sessionId);
     if (!getIsEnabled()) {
       return;
     }
