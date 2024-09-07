@@ -70,9 +70,12 @@ function Chest({
         disabled={!featureFlags.isEnabled || isOpen}
         className="size-16 btn btn-secondary flex items-center justify-center"
         onClick={() => {
+          console.log("Attempting to open chest:", index);
           openChest({ index, sessionId: SESSION_ID }).then((code) => {
             if (code) {
               data.onCodeFound(code);
+            } else {
+              console.error("Chest opening failed: no code returned");
             }
           });
         }}
