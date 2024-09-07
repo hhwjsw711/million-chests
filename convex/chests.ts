@@ -70,12 +70,14 @@ export const openChest = mutation({
     sessionId: v.string(),
   },
   async handler(ctx, args) {
+    console.log("openChest called with index:", args.index);
     if (!getIsEnabled()) {
       return;
     }
 
     const isLimited = await rateLimitByKey(ctx, args.sessionId);
     if (isLimited) {
+      console.log("Rate limit hit for session:", args.sessionId);
       return;
     }
 
